@@ -3,10 +3,10 @@ import sublime
 import sublime_plugin
 
 
-class IncreaseNumEditCommand(sublime_plugin.TextCommand):
+class InsertIncreaseNumCommand(sublime_plugin.TextCommand):
 	def run(self, edit, index):
 		for region in self.view.sel():
-			pos = region.begin()
+			pos = region.end()
 			self.view.insert(edit, pos, str(index))
 			index += 1
 
@@ -22,9 +22,7 @@ class IncreaseNumCommand(sublime_plugin.TextCommand):
 			try:
 				index = int(x)
 			except:
-				print("It's not number")
-				return
-
-			window.run_command("increase_num_edit", {"index" : index})
+				index = 1
+			window.run_command("insert_increase_num", {"index" : index})
 			
-		window.show_input_panel("Floyda", "1", on_done, None, None)
+		window.show_input_panel("Beginning Index ", "", on_done, None, None)
