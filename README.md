@@ -1,6 +1,8 @@
 # sublime_increase_num
 
 ### 快捷键
-```
-{ "keys": ["ctrl+alt+i"], "command": "increase_num" },
-```
+- Windows
+    - `{ "keys": ["ctrl+alt+i"], "command": "increase_num" },`
+
+- Mac
+    - `{ "keys": ["super+alt+i"], "command": "increase_num" },`
