@@ -24,13 +24,13 @@ def deal_input_str(input_str):
         return True, int(input_str)
     except:
         pass
-    if len(input_str) != 1: return True, 1
+    if len(input_str) != 1: return True, 0
     # a..z, A..Z
     ord_num = ord(input_str)
     if (ord_num >= 65 and ord_num <= 90) or (ord_num >= 97 and ord_num <= 122):
         return False, ord_num
 
-    return (True, 1)
+    return (True, 0)
 
 
 class IncreaseNumCommand(sublime_plugin.TextCommand):
