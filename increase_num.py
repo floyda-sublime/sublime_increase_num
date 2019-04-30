@@ -2,11 +2,19 @@ import sublime
 import sublime_plugin
 
 
+def fix_zero(s, max_length):
+    s = '0' * (max_length - len(s)) + s
+    return s
+
+
 class InsertIncreaseNumberCommand(sublime_plugin.TextCommand):
     def run(self, edit, index):
+        max_length = len(str(index + len(self.view.sel())))
         for region in self.view.sel():
             pos = region.end()
-            self.view.insert(edit, pos, str(index))
+            content = str(index)
+            content = fix_zero(content, max_length)
+            self.view.insert(edit, pos, content)
             index += 1
 
 
